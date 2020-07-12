@@ -49,7 +49,8 @@ body {
 }
 
 a,
-p {
+p,
+h3 {
 	line-height: var(--lh);
 }
 
@@ -129,6 +130,7 @@ article {
 	max-width: calc(var(--fz)*21);
 }
 
+article h3,
 article p:not(:last-child) {
 	margin-bottom: calc(var(--lh)/1.618);
 }
