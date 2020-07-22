@@ -317,7 +317,7 @@
 		</figure>
 	</main>
 	<section>
-		<h2>prices</h2>
+		<h2>rates</h2>
 		<article>
 			<h3>I can offer some<br>“per image” rates as a guide:</h3>
 			<p><mark>Basic portrait retouching</mark> &nbsp;&nbsp;—&nbsp; 7$<br>elimination of minor skin defects<br>and basic color correction</p>
@@ -327,7 +327,7 @@
 		</article>
 	</section>
 	<footer>
-		<button id="prices-btn">prices</button>
+		<button id="rates-btn">rates</button>
 		<a href="https://www.behance.net/nikitaignatchenko" target="_blank" rel="noreferrer">behance</a>
 		<a href="https://www.instagram.com/retoucher.nikita" target="_blank" rel="noreferrer">instagram</a>
 		<a href="mailto:notatikin@gmail.com">email</a>
@@ -339,20 +339,20 @@
 		let body = document.querySelector('body');
 		let section = document.querySelector('section');
 		let imgWidth = document.querySelector('img').width;
-		let pricesBtn = document.querySelector('#prices-btn');
+		let ratesBtn = document.querySelector('#rates-btn');
 		
 		window.addEventListener('wheel', onWheel, {passive: true});
-		pricesBtn.addEventListener('click', showPrices, {passive: true});
+		ratesBtn.addEventListener('click', showPrices, {passive: true});
 
 		function showPrices() {
-			if (body.hasAttribute('prices')) {
+			if (body.hasAttribute('rates')) {
 				body.removeAttribute(body.attributes[0].name);
 				section.scrollTo({ top: 0 });
 				main.scrollTo({ top: 0 });
-				this.innerHTML = 'prices';
+				this.innerHTML = 'rates';
 			} else {
-				body.setAttribute('prices','');
-				this.innerHTML = 'close&nbsp;';
+				body.setAttribute('rates','');
+				this.innerHTML = 'close';
 			}
 		}
 

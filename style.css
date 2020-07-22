@@ -224,7 +224,7 @@ button {
 	cursor: pointer;
 }
 
-body[prices] section {
+body[rates] section {
 	opacity: 1;
 	pointer-events: all;
 	-webkit-transform: initial;
