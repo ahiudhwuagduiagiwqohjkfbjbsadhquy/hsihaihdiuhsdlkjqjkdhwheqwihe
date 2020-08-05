@@ -13,16 +13,14 @@
 	--bg: #ffffff;
 	--mc: #cccccc;
 	--c: #000000;
-	--gap: 23px;
-	--fz: 21px;
-	--lh: 32px;
+	--x: 18px;
 }
 
 *,
 *::before,
 *::after {
 	font-family: 'Clother', sans-serif;
-	font-size: var(--fz);
+	font-size: var(--x);
 	color: var(--c);
 	font-style: normal;
 	font-weight: normal;
@@ -49,7 +47,7 @@ body {
 a,
 p,
 h3 {
-	line-height: var(--lh);
+	line-height: calc(var(--x) * 1.618);
 }
 
 body::before,
@@ -73,7 +71,7 @@ section::before {
 
 body::before,
 body::after {
-	width: var(--gap);
+	width: var(--x);
 	bottom: 0;
 }
 
@@ -82,9 +80,12 @@ body::after {
 }
 
 header,
-footer,
+footer {
+	padding-left: var(--x);
+}
+
 section {
-	padding: 0 var(--gap);
+	padding: 0 var(--x);
 }
 
 header {
@@ -98,13 +99,13 @@ footer {
 header,
 footer,
 h2 {
-	height: calc(var(--gap)*4);
-	line-height: calc(var(--gap)*4);
+	height: calc(var(--x)*4);
+	line-height: calc(var(--x)*4);
 	background: inherit;
 }
 
 footer *:not(:last-child) {
-	margin-right: calc(var(--gap)/2);
+	margin-right: calc(var(--x)/2);
 }
 
 body::before,
@@ -124,13 +125,18 @@ section {
 	top: 0;
 }
 
+section,
+footer {
+	bottom: 0;
+}
+
 article {
-	max-width: calc(var(--fz)*21);
+	max-width: calc(var(--x)*21);
 }
 
 article h3,
 article p:not(:last-child) {
-	margin-bottom: calc(var(--lh)/1.618);
+	margin-bottom: calc(var(--x)/1.618);
 }
 
 mark {
@@ -138,13 +144,8 @@ mark {
 	border-bottom: 1px solid var(--mc);
 }
 
-section,
-footer {
-	bottom: 0;
-}
-
 main {
-	padding: calc(var(--gap)*4) 0 calc(var(--gap)*4) var(--gap);
+	padding: calc(var(--x)*4) 0 calc(var(--x)*4) var(--x);
 	height: 100vh;
 	white-space: nowrap;
 	overflow-x: scroll;
@@ -159,7 +160,7 @@ main::-webkit-scrollbar {
 }
 
 section::before {
-	height: var(--gap);
+	height: var(--x);
 }
 
 section {
@@ -167,13 +168,13 @@ section {
 	background: inherit;
 	z-index: 666;
 	overflow-y: auto;
-	-webkit-transition: opacity 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
-	transition: opacity 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
-	transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
-	transition: opacity 400ms ease-in-out, transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
-	-webkit-transform: translate3d(0, var(--gap), 0);
-	transform: translate3d(0, var(--gap), 0);
-	padding-bottom: calc(var(--gap)*4);
+	-webkit-transition: opacity 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
+	transition: opacity 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
+	transition: opacity 400ms cubic-bezier(.23,0,.23,1), transform 400ms cubic-bezier(.23,0,.23,1);
+	transition: opacity 400ms cubic-bezier(.23,0,.23,1), transform 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
+	-webkit-transform: translate3d(0, var(--x), 0);
+	transform: translate3d(0, var(--x), 0);
+	padding-bottom: calc(var(--x)*4);
 	pointer-events: none;
 	opacity: 0;
 }
@@ -181,7 +182,7 @@ section {
 figure {
 	position: relative;
 	display: inline-block;
-	margin-right: var(--gap);
+	margin-right: var(--x);
 	background: var(--c);
 	height: 100%;
 }
@@ -192,10 +193,10 @@ img {
 }
 
 img.loaded {
-	animation: show 300ms ease-in-out;
-	-webkit-animation: show 300ms ease-in-out;
-	-moz-animation: show 300ms ease-in-out;
-	-o-animation: show 300ms ease-in-out;
+	animation: show 400ms cubic-bezier(.23,0,.23,1);
+	-webkit-animation: show 400ms cubic-bezier(.23,0,.23,1);
+	-moz-animation: show 400ms cubic-bezier(.23,0,.23,1);
+	-o-animation: show 400ms cubic-bezier(.23,0,.23,1);
 }
 
 figure:hover figcaption {
@@ -205,8 +206,8 @@ figure:hover figcaption {
 
 figcaption {
 	position: absolute;
-	left: var(--gap);
-	bottom: var(--gap);
+	left: var(--x);
+	bottom: var(--x);
 	pointer-events: none;
 	opacity: 0;
 }
@@ -214,7 +215,7 @@ figcaption {
 figcaption a {
 	display: block;
 	color: var(--bg);
-	line-height: var(--lh);
+	line-height: calc(var(--x) * 1.618);
 }
 
 button {
@@ -233,8 +234,8 @@ a,
 img,
 button,
 figcaption {
-	transition: opacity 300ms ease-in-out;
-	-webkit-transition: opacity 300ms ease-in-out;
+	transition: opacity 400ms cubic-bezier(.23,0,.23,1);
+	-webkit-transition: opacity 400ms cubic-bezier(.23,0,.23,1);
 }
 
 a:hover,
@@ -249,37 +250,34 @@ button:hover {
 
 @media (max-width: 768px) {
 	:root {
-		--gap: 16px;
-		--fz: 18px;
-		--lh: 30px;
+		--x: 16px;
 	}
+
 	body::before,
 	body::after {
 		display: none;
 	}
+
 	main {
 		width: 100%;
-		padding: calc(var(--gap)*4) var(--gap) calc(var(--gap)*4) var(--gap);
+		padding: calc(var(--x)*4) var(--x) calc(var(--x)*4) var(--x);
 		white-space: normal;
 		overflow-x: auto;
 		overflow-y: auto;
 	}
+
 	figure {
 		display: block;
 		margin-right: 0;
 		height: auto;
 		width: 100%;
 	}
+
 	figure:not(:last-child) {
-		margin-bottom: var(--gap);
+		margin-bottom: var(--x);
 	}
+
 	img {
 		width: 100%;
-	}
-}
-
-@media (max-width: 360px) {
-	article {
-		max-width: none;
 	}
 }
