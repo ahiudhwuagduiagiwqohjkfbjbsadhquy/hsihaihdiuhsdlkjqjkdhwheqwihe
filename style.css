@@ -10,10 +10,11 @@
 }
 
 :root {
+	--x: 18px;
+	--c: #000000;
 	--bg: #ffffff;
 	--mc: #cccccc;
-	--c: #000000;
-	--x: 18px;
+	--cubic: cubic-bezier(.23,0,.23,1);
 }
 
 *,
@@ -69,6 +70,14 @@ section::before {
 	top: 0;
 }
 
+footer {
+	z-index: 777;
+}
+
+header {
+	z-index: 555;
+}
+
 body::before,
 body::after {
 	width: var(--x);
@@ -86,14 +95,6 @@ footer {
 
 section {
 	padding: 0 var(--x);
-}
-
-header {
-	z-index: 555;
-}
-
-footer {
-	z-index: 777;
 }
 
 header,
@@ -134,13 +135,12 @@ article {
 	max-width: calc(var(--x)*21);
 }
 
-article h3,
 article p:not(:last-child) {
 	margin-bottom: calc(var(--x)/1.618);
 }
 
 mark {
-	background: transparent;
+	background-color: transparent;
 	border-bottom: 1px solid var(--mc);
 }
 
@@ -168,15 +168,18 @@ section {
 	background: inherit;
 	z-index: 666;
 	overflow-y: auto;
-	-webkit-transition: opacity 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
-	transition: opacity 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
-	transition: opacity 400ms cubic-bezier(.23,0,.23,1), transform 400ms cubic-bezier(.23,0,.23,1);
-	transition: opacity 400ms cubic-bezier(.23,0,.23,1), transform 400ms cubic-bezier(.23,0,.23,1), -webkit-transform 400ms cubic-bezier(.23,0,.23,1);
+	transition: opacity 400ms var(--cubic), transform 400ms var(--cubic);
 	-webkit-transform: translate3d(0, var(--x), 0);
 	transform: translate3d(0, var(--x), 0);
 	padding-bottom: calc(var(--x)*4);
 	pointer-events: none;
 	opacity: 0;
+}
+
+body[rates] section {
+	opacity: 1;
+	pointer-events: all;
+	transform: initial
 }
 
 figure {
@@ -193,10 +196,12 @@ img {
 }
 
 img.loaded {
-	animation: show 400ms cubic-bezier(.23,0,.23,1);
-	-webkit-animation: show 400ms cubic-bezier(.23,0,.23,1);
-	-moz-animation: show 400ms cubic-bezier(.23,0,.23,1);
-	-o-animation: show 400ms cubic-bezier(.23,0,.23,1);
+	animation: show 400ms var(--cubic);
+}
+
+@keyframes show {
+	from { opacity: 0 }
+	to { opacity: 1 }
 }
 
 figure:hover figcaption {
@@ -223,29 +228,16 @@ button {
 	cursor: pointer;
 }
 
-body[rates] section {
-	opacity: 1;
-	pointer-events: all;
-	-webkit-transform: initial;
-	transform: initial
-}
-
 a,
 img,
 button,
 figcaption {
-	transition: opacity 400ms cubic-bezier(.23,0,.23,1);
-	-webkit-transition: opacity 400ms cubic-bezier(.23,0,.23,1);
+	transition: opacity 400ms var(--cubic);
 }
 
 a:hover,
 button:hover {
 	opacity: .5;
-}
-
-@keyframes show {
-	from { opacity: 0 }
-	to { opacity: 1 }
 }
 
 @media (max-width: 768px) {

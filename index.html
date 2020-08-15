@@ -4,8 +4,7 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 	<link rel=“preload” href=“/fonts/Clother.woff2”>
-	<link rel="stylesheet" href="main.css">
-	<script src="lazy.js"></script>
+	<link rel="stylesheet" href="main.css"><script src="lazy.js"></script>
 	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
@@ -317,13 +316,16 @@
 		</figure>
 	</main>
 	<section>
-		<h2>rates</h2>
+		<h2>Some rates</h2>
 		<article>
-			<h3>I can offer some<br>“per image” rates as a guide:</h3>
-			<p><mark>Basic portrait retouching</mark> &nbsp;&nbsp;—&nbsp; 7$<br>elimination of minor skin defects<br>and basic color correction</p>
-			<p><mark>Beauty and Fashion</mark> &nbsp;&nbsp;—&nbsp; 13$<br>special attention paid to composition, color and high-end (no blur) skin retouching. Emphasis on clothing, accessories and building a cohesive style and story</p>
-			<p><mark>Highend</mark> &nbsp;&nbsp;—&nbsp; 21$<br>pixel by pixel retouch including fine detail high-end skin retouching, contouring and hand painted enhancement of hair and makeup. Thorough perfection</p>
-			<p><mark>Extras</mark><br>all photos are completely different and sometimes the cost of work is evaluated individually.</p>
+			<h3><mark>Basic portrait retouching</mark> — 7$</h3>
+			<p>elimination of minor skin defects<br>and basic color correction</p>
+			<h3><mark>Beauty, Fashion, Nude, Full body</mark> — 13$</h3>
+			<p>special attention paid to composition,<br>color and highend (no blur) skin retouching. Emphasis on clothing, accessories and<br>building a cohesive style and story</p>
+			<h3><mark>Highend, Editorial</mark> — 21$</h3>
+			<p>pixel by pixel retouch including fine detail highend skin retouching, contouring and hand painted enhancement of hair and makeup. Thorough perfection</p>
+			<h3><mark>Post scriptum</mark></h3>
+			<p>all photos are completely different<br>and sometimes cost of work is assessed individually. Also, the price depends on the volume of the order and the timing.<br>Send shots to my email or direct<br>and I tell you the exact rate.</p>
 		</article>
 	</section>
 	<footer>
@@ -334,28 +336,25 @@
 	</footer>
 	<script>
 		const lazy = new LazyLoad({elements_selector: 'img'});
-
 		let main = document.querySelector('main');
 		let body = document.querySelector('body');
 		let section = document.querySelector('section');
 		let imgWidth = document.querySelector('img').width;
 		let ratesBtn = document.querySelector('#rates-btn');
-		
 		window.addEventListener('wheel', onWheel, {passive: true});
+		section.addEventListener('click', showPrices, {passive: true});
 		ratesBtn.addEventListener('click', showPrices, {passive: true});
-
 		function showPrices() {
 			if (body.hasAttribute('rates')) {
 				body.removeAttribute(body.attributes[0].name);
 				section.scrollTo({ top: 0 });
 				main.scrollTo({ top: 0 });
-				this.innerHTML = 'rates';
+				ratesBtn.innerHTML = 'rates';
 			} else {
 				body.setAttribute('rates','');
-				this.innerHTML = 'close';
+				ratesBtn.innerHTML = 'close';
 			}
 		}
-
 		function onWheel(e) {
 			imgWidth = document.querySelector('img').width;
 			if (e.deltaY > 0) main.scrollLeft += imgWidth/7;
