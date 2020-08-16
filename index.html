@@ -320,9 +320,9 @@
 		<article>
 			<h3><mark>Basic portrait retouching</mark> — 7$</h3>
 			<p>elimination of minor skin defects<br>and basic color correction</p>
-			<h3><mark>Beauty, Fashion, Nude, Full body</mark> — 13$</h3>
+			<h3><mark>Beauty, Fashion, Nude, Full body</mark> — 15$</h3>
 			<p>special attention paid to composition,<br>color and highend (no blur) skin retouching. Emphasis on clothing, accessories and<br>building a cohesive style and story</p>
-			<h3><mark>Highend, Editorial</mark> — 21$</h3>
+			<h3><mark>Highend, Editorial</mark> — 23$</h3>
 			<p>pixel by pixel retouch including fine detail highend skin retouching, contouring and hand painted enhancement of hair and makeup. Thorough perfection</p>
 			<h3><mark>Post scriptum</mark></h3>
 			<p>all photos are completely different<br>and sometimes cost of work is assessed individually. Also, the price depends on the volume of the order and the timing.<br>Send shots to my email or direct<br>and I tell you the exact rate.</p>
@@ -335,31 +335,7 @@
 		<a href="mailto:notatikin@gmail.com">email</a>
 	</footer>
 	<script>
-		const lazy = new LazyLoad({elements_selector: 'img'});
-		let main = document.querySelector('main');
-		let body = document.querySelector('body');
-		let section = document.querySelector('section');
-		let imgWidth = document.querySelector('img').width;
-		let ratesBtn = document.querySelector('#rates-btn');
-		window.addEventListener('wheel', onWheel, {passive: true});
-		section.addEventListener('click', showPrices, {passive: true});
-		ratesBtn.addEventListener('click', showPrices, {passive: true});
-		function showPrices() {
-			if (body.hasAttribute('rates')) {
-				body.removeAttribute(body.attributes[0].name);
-				section.scrollTo({ top: 0 });
-				main.scrollTo({ top: 0 });
-				ratesBtn.innerHTML = 'rates';
-			} else {
-				body.setAttribute('rates','');
-				ratesBtn.innerHTML = 'close';
-			}
-		}
-		function onWheel(e) {
-			imgWidth = document.querySelector('img').width;
-			if (e.deltaY > 0) main.scrollLeft += imgWidth/7;
-			else if (e.deltaY < 0 && main.scrollLeft > 0) main.scrollLeft -= imgWidth/7;
-		}
+		const lazy=new LazyLoad({elements_selector:"img"});let main=document.querySelector("main"),body=document.querySelector("body"),section=document.querySelector("section"),imgWidth=document.querySelector("img").width,ratesBtn=document.querySelector("#rates-btn");function showPrices(){body.hasAttribute("rates")?(body.removeAttribute(body.attributes[0].name),section.scrollTo({top:0}),main.scrollTo({top:0}),ratesBtn.innerHTML="rates"):(body.setAttribute("rates",""),ratesBtn.innerHTML="close")}function onWheel(e){imgWidth=document.querySelector("img").width,e.deltaY>0?main.scrollLeft+=imgWidth/7:e.deltaY<0&&main.scrollLeft>0&&(main.scrollLeft-=imgWidth/7)}window.addEventListener("wheel",onWheel,{passive:!0}),section.addEventListener("click",showPrices,{passive:!0}),ratesBtn.addEventListener("click",showPrices,{passive:!0});
 	</script>
 </body>
 </html>
