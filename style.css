@@ -14,41 +14,42 @@
 	--c: #000000;
 	--bg: #ffffff;
 	--mc: #cccccc;
-	--cubic: cubic-bezier(.23,0,.23,1);
+	--cubic: cubic-bezier(0.23, 0, 0.23, 1);
+}
+
+html {
+	background: var(--bg);
+	font-size: var(--x);
 }
 
 *,
 *::before,
 *::after {
+	box-sizing: border-box;
 	font-family: 'Clother', sans-serif;
-	font-size: var(--x);
 	color: var(--c);
+	font-size: inherit;
+	background: inherit;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: none;
-	list-style: none;
-	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	list-style: none;
 	outline: none;
 	border: none;
 	padding: 0;
 	margin: 0;
 }
 
-html,
-body {
-	background: var(--bg);
-}
-
 a,
 p,
 h3 {
-	line-height: calc(var(--x) * 1.618);
+	line-height: 1.618;
 }
 
 body::before,
@@ -65,7 +66,6 @@ body::before,
 body::after,
 section::before {
 	content: '';
-	background: inherit;
 	z-index: 888;
 	top: 0;
 }
@@ -80,7 +80,7 @@ header {
 
 body::before,
 body::after {
-	width: var(--x);
+	width: 1rem;
 	bottom: 0;
 }
 
@@ -90,23 +90,22 @@ body::after {
 
 header,
 footer {
-	padding-left: var(--x);
+	padding-left: 1rem;
 }
 
 section {
-	padding: 0 var(--x);
+	padding: 0 1rem;
 }
 
 header,
 footer,
 h2 {
-	height: calc(var(--x)*4);
-	line-height: calc(var(--x)*4);
-	background: inherit;
+	height: 4rem;
+	line-height: 4rem;
 }
 
 footer *:not(:last-child) {
-	margin-right: calc(var(--x)/2);
+	margin-right: .5rem;
 }
 
 body::before,
@@ -132,27 +131,26 @@ footer {
 }
 
 article {
-	max-width: calc(var(--x)*21);
+	max-width: 21rem;
 }
 
 article p:not(:last-child) {
-	margin-bottom: calc(var(--x)/1.618);
+	margin-bottom: .618rem;
 }
 
 mark {
-	background-color: transparent;
 	border-bottom: 1px solid var(--mc);
 }
 
 main {
-	padding: calc(var(--x)*4) 0 calc(var(--x)*4) var(--x);
+	padding: 4rem 0 4rem 1rem;
 	height: 100vh;
 	white-space: nowrap;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	font-size: 0;
+	letter-spacing: -.23em;
 }
 
 main::-webkit-scrollbar {
@@ -160,18 +158,17 @@ main::-webkit-scrollbar {
 }
 
 section::before {
-	height: var(--x);
+	height: 1rem;
 }
 
 section {
 	min-height: auto;
-	background: inherit;
 	z-index: 666;
 	overflow-y: auto;
 	transition: opacity 400ms var(--cubic), transform 400ms var(--cubic);
-	-webkit-transform: translate3d(0, var(--x), 0);
-	transform: translate3d(0, var(--x), 0);
-	padding-bottom: calc(var(--x)*4);
+	-webkit-transform: translate3d(0, 1rem, 0);
+	transform: translate3d(0, 1rem, 0);
+	padding-bottom: 4rem;
 	pointer-events: none;
 	opacity: 0;
 }
@@ -179,20 +176,21 @@ section {
 body[rates] section {
 	opacity: 1;
 	pointer-events: all;
-	transform: initial
+	transform: initial;
 }
 
 figure {
 	position: relative;
 	display: inline-block;
-	margin-right: var(--x);
 	background: var(--c);
+	margin-right: 1rem;
 	height: 100%;
 }
 
 img {
 	display: block;
 	height: inherit;
+	pointer-events: none;
 }
 
 img.loaded {
@@ -200,8 +198,12 @@ img.loaded {
 }
 
 @keyframes show {
-	from { opacity: 0 }
-	to { opacity: 1 }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 figure:hover figcaption {
@@ -211,20 +213,20 @@ figure:hover figcaption {
 
 figcaption {
 	position: absolute;
-	left: var(--x);
-	bottom: var(--x);
+	left: 1rem;
+	bottom: 1rem;
 	pointer-events: none;
+	background: transparent;
+	letter-spacing: normal;
 	opacity: 0;
 }
 
 figcaption a {
 	display: block;
 	color: var(--bg);
-	line-height: calc(var(--x) * 1.618);
 }
 
 button {
-	background: transparent;
 	cursor: pointer;
 }
 
@@ -237,7 +239,7 @@ figcaption {
 
 a:hover,
 button:hover {
-	opacity: .5;
+	opacity: 0.5;
 }
 
 @media (max-width: 768px) {
@@ -252,8 +254,9 @@ button:hover {
 
 	main {
 		width: 100%;
-		padding: calc(var(--x)*4) var(--x) calc(var(--x)*4) var(--x);
+		padding: 4rem 1rem;
 		white-space: normal;
+		letter-spacing: normal;
 		overflow-x: auto;
 		overflow-y: auto;
 	}
@@ -262,7 +265,6 @@ button:hover {
 		display: block;
 		margin-right: 0;
 		height: auto;
-		width: 100%;
 	}
 
 	figure:not(:last-child) {
