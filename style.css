@@ -7,6 +7,7 @@
 	     url('./fonts/Clother.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 :root {
@@ -20,18 +21,24 @@
 html {
 	background: var(--bg);
 	font-size: var(--x);
+	font-family: 'Clother', 'Corbel', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
-	font-family: 'Clother', sans-serif;
-	color: var(--c);
-	font-size: inherit;
 	background: inherit;
+	border: none;
+	color: var(--c);
+	font-family: inherit;
+	font-size: inherit;
 	font-style: normal;
 	font-weight: normal;
+	list-style: none;
+	margin: 0;
+	outline: none;
+	padding: 0;
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
 	-moz-user-select: none;
@@ -39,11 +46,6 @@ html {
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	list-style: none;
-	outline: none;
-	border: none;
-	padding: 0;
-	margin: 0;
 }
 
 a,
