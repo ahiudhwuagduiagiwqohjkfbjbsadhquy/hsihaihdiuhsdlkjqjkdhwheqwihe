@@ -1,5 +1,5 @@
 {
-    "name": "Nikita Ignatchenko retoucher and creative",
+    "name": "Nikita Ignatchenko retouch service",
     "short_name": "retoucher nikita",
     "icons": [
         {
@@ -14,9 +14,10 @@
             "type": "image/png"
         }
     ],
-    "start_url": "https://notatikin.github.io/retouch",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "orientation": "portrait-primary",
-    "display": "standalone"
+	"display": "fullscreen",
+	"prefer_related_applications": true
 }
